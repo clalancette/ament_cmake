@@ -50,11 +50,10 @@
 # @public
 #
 function(ament_add_test testname)
-  cmake_parse_arguments(ARG
+  cmake_parse_arguments(PARSE_ARGV 1 ARG
     "GENERATE_RESULT_FOR_RETURN_CODE_ZERO;SKIP_TEST"
     "OUTPUT_FILE;RESULT_FILE;RUNNER;TIMEOUT;WORKING_DIRECTORY"
-    "APPEND_ENV;APPEND_LIBRARY_DIRS;COMMAND;ENV"
-    ${ARGN})
+    "APPEND_ENV;APPEND_LIBRARY_DIRS;COMMAND;ENV")
   if(ARG_UNPARSED_ARGUMENTS)
     message(FATAL_ERROR "ament_add_test() called with unused arguments: "
       "${ARG_UNPARSED_ARGUMENTS}")
